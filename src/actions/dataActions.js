@@ -126,7 +126,7 @@ export const getUpdatingExistingState=(id,data) => {
 
     console.log(data,'response');
     return (dispatch) => {
-        axios.put(`http://localhost:8080/api/tutorials/${id}`,data
+        axios.put(`https://location1.vercel.app/api/tutorials/${id}`,data
 
         )
             .then(response => {
@@ -161,7 +161,7 @@ export const getDeleteExistingState=(id) => {
 
     // console.log(data,'response');
     return (dispatch) => {
-        axios.delete(`http://localhost:8080/api/tutorials/${id}`,
+        axios.delete(`https://location1.vercel.app/api/tutorials/${id}`,
 
         )
             .then(response => {
@@ -210,7 +210,7 @@ export const getCreatedNewEntity=(data) => {
 
 export const getPostingData=() => {
     return (dispatch) => {
-        axios.get(`http://localhost:8080/api/tutorials`,
+        axios.get(`https://location1.vercel.app/api/tutorials`,
             {
                 // params: authenticationParam
             }

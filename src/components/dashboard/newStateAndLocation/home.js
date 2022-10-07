@@ -48,7 +48,7 @@ export default function Home() {
             "location": address,
             "state": `${inputData}`
         }
-        axios.post(`http://localhost:8080/api/tutorials`,data
+        axios.post(`https://location1.vercel.app/api/tutorials`,data
 
         )
             .then(response => {
