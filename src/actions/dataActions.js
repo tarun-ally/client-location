@@ -81,7 +81,7 @@ export const getCreatedNewEntits=(data) => {
 
     console.log(data,'response');
     return (dispatch) => {
-        axios.post(`https://location1.vercel.app/api/tutorials`,{data}
+        axios.post(`https://location-mu.vercel.app/api/tutorials`,{data}
 
         )
             .then(response => {
@@ -126,7 +126,7 @@ export const getUpdatingExistingState=(id,data) => {
 
     console.log(data,'response');
     return (dispatch) => {
-        axios.put(`https://location1.vercel.app/api/tutorials/${id}`,data
+        axios.put(`https://location-mu.vercel.app/api/tutorials/${id}`,data
 
         )
             .then(response => {
@@ -161,7 +161,7 @@ export const getDeleteExistingState=(id) => {
 
     // console.log(data,'response');
     return (dispatch) => {
-        axios.delete(`https://location1.vercel.app/api/tutorials/${id}`,
+        axios.delete(`https://location-mu.vercel.app/api/tutorials/${id}`,
 
         )
             .then(response => {
@@ -207,10 +207,10 @@ export const getCreatedNewEntity=(data) => {
 
     }
 }
-
+// https://location-mu.vercel.app/
 export const getPostingData=() => {
     return (dispatch) => {
-        axios.get(`https://location1.vercel.app/api/tutorials`,
+        axios.get(`https://location-mu.vercel.app/api/tutorials`,
             {
                 // params: authenticationParam
             }

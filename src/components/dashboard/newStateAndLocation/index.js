@@ -43,7 +43,7 @@ export default function AddingData() {
             ],
             "state": `${inputData}`
         }
-        axios.post(`https://location1.vercel.app/api/tutorials`,data
+        axios.post(`https://location-mu.vercel.app/api/tutorials`,data
 
         )
             .then(response => {
