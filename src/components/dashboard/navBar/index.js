@@ -35,7 +35,7 @@ export default function NavBar() {
             <div className='heading' onClick={handleBackToHomePage} >
                 Anand Marga Pracharak sangh
             </div>
-            {!window.location.href.includes('data')||window.location.href.includes('delete')&&<div className='heading-adding' onClick={handleOnClick} >
+            {(!window.location.href.includes('data')||window.location.href.includes('delete'))&&<div className='heading-adding' onClick={handleOnClick} >
                 Add New State and location
             </div>}
             {window.location.href.includes('adding')&&<div className='heading-adding' onClick={handleGoToUpdatePage} >
