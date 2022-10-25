@@ -20,7 +20,9 @@ export default function NavBar() {
     const handleGoToUpdatePage=() => {
         window.location.href=`${window.location.origin}/update-data`
     }
-
+    const handleGoToDeletePage=() => {
+        window.location.href=`${window.location.origin}/delete-data`
+    }
     const handleSelectingSearchOption=(e) => {
         // console.log(e.target.value,'e.target.value');
 
@@ -33,11 +35,14 @@ export default function NavBar() {
             <div className='heading' onClick={handleBackToHomePage} >
                 Anand Marga Pracharak sangh
             </div>
-            {!window.location.href.includes('adding-data')&&<div className='heading-adding' onClick={handleOnClick} >
+            {!window.location.href.includes('data')||window.location.href.includes('delete')&&<div className='heading-adding' onClick={handleOnClick} >
                 Add New State and location
             </div>}
-            {window.location.href.includes('adding-data')&&<div className='heading-adding' onClick={handleGoToUpdatePage} >
+            {window.location.href.includes('adding')&&<div className='heading-adding' onClick={handleGoToUpdatePage} >
                 Update State and location
+            </div>}
+            {window.location.href.includes('update')&&<div className='heading-adding' onClick={handleGoToDeletePage} >
+                Delete State and location
             </div>}
             {/* jos */}
             {/* <p className='title' onClick={handleOnClick}><AiFillHome /> Naukri Data Catalog</p> */}

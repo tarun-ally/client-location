@@ -37,16 +37,18 @@ export default function Home() {
         // window.location.href=`${window.location.origin}/catalog`
     }
     const handleInputlocation=(e) => {
-        // console.log(e.target.value,'e');
-        setAddress(e.target.value)
+        console.log(e.target.value,'e');
+        setInputData(e.target.value)
         // window.location.href=`${window.location.origin}/catalog`
     }
     const handleSubmit=() => {
         console.log('e');
         // window.location.href=`${window.location.origin}/catalog`
         let data={
-            "location": address,
-            "state": `${inputData}`
+            // "location": inputData,
+            "state": inputData,
+
+            "location": address
         }
         axios.post(`https://location-mu.vercel.app/api/tutorials`,data
 
@@ -101,7 +103,7 @@ export default function Home() {
 
             </div>
 
-            <input onChange={handleInput}
+            <input onChange={handleInputlocation}
                 placeholder='Any State ...'
             >
 
