@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
+import Creatable from 'react-select/creatable';
+
 import './home.scss'
 import axios from 'axios'
 
@@ -17,9 +19,66 @@ export default function Home() {
     const [selectedDropdown,setSelectedDropdown]=useState("1")
     const [inputData,setInputData]=useState("")
     const [address,setAddress]=useState([''])
+    const locState=useSelector((state) => state.dataReducer.inputData.locState)
 
 
     const dispatch=useDispatch()
+
+    const style={
+        indicatorSeparator: () => {},
+        dropdownIndicator: defaultStyles => ({
+            ...defaultStyles,
+            color: '#939393' // your changes to the arrow
+        }),
+        menu: provided => ({
+            ...provided,
+            marginTop: 0,
+            width: '100%',
+            marginTop: '-1px',
+
+
+        }),
+        control: base => ({
+            ...base,
+            border: 0,
+            // This line disable the blue border
+            boxShadow: 'none',
+            minHeight: 35,
+            height: 35,
+            fontSize: 14,
+
+        }),
+        singleValue: (provided,state) => ({
+            ...provided,
+            fontSize: 14,
+            overflow: 'visible',
+
+
+        }),
+        input: (provided,state) => ({
+            ...provided,
+            margin: '0px',
+            fontSize: 14,
+            '& input': {
+                fontSize: 14,
+
+            },
+        }),
+        group: provided => ({
+            ...provided,
+        }),
+        option: (provided,state) => ({
+            ...provided,
+            fontSize: 14,
+            height: "40px",
+            "&:hover": {
+                backgroundColor: "#5E81F4",
+            },
+            backgroundColor: state.isSelected? "#5E81F4":"white",
+        }
+
+        ),
+    };
 
     const handleOnClick=() => {
         // window.location.href=`${window.location.origin}/catalog`
@@ -37,12 +96,12 @@ export default function Home() {
         // window.location.href=`${window.location.origin}/catalog`
     }
     const handleInputlocation=(e) => {
-        console.log(e.target.value,'e');
-        setInputData(e.target.value)
+        console.log(e.label,'handleInputlocation');
+        setInputData(e.label)
         // window.location.href=`${window.location.origin}/catalog`
     }
     const handleSubmit=() => {
-        console.log('e');
+        // console.log('e');
         // window.location.href=`${window.location.origin}/catalog`
         let data={
             // "location": inputData,
@@ -76,7 +135,7 @@ export default function Home() {
         ansResult.splice(id,1);
 
         // ansResult[e.target.id]=e.target.value
-        console.log(ansResult,'ansResult',id);
+        // console.log(ansResult,'ansResult',id);
         // // dispatch(getState(ansResult))
         setAddress([...ansResult])
 
@@ -90,6 +149,8 @@ export default function Home() {
         setAddress([...ansResult])
 
     }
+    // console.log(locState,'locState');
+
     return (
         <div className='adding-Data'
 
@@ -99,15 +160,38 @@ export default function Home() {
         // background-repeat: no-repeat;
         >
             <div className='heading'>
-                Please new add state
+                Select state
 
             </div>
 
-            <input onChange={handleInputlocation}
+            {/* <input onChange={handleInputlocation}
                 placeholder='Any State ...'
             >
 
-            </input>
+            </input> */}
+            <div className="input-main">
+
+                <div className="input">
+                    <Creatable
+                        // id={index}
+                        onChange={(e) => {
+                            handleInputlocation(e)
+
+                        }}
+
+                        // value={mandatoryField[index].dataType}
+                        // isDisabled={mandatoryField[index].disable=='yes'? true:false}
+                        isSearchable={false}
+                        placeholder={'Data Type...'}
+                        options={locState}
+                        // value={inputData}
+                        styles={style}
+                        maxMenuHeight={200}
+
+                    />
+                </div>
+
+            </div>
 
             <div className="address">
 

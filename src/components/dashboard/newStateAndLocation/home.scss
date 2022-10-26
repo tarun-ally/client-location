@@ -13,6 +13,31 @@
         padding-top: 2%;
         margin-left: 8%;
     }
+      .input-main{
+
+                width: 26%;
+                margin: 20px 0px 0 0;
+        margin-left: 8%;
+
+                // background-color: aqua;
+                .input{
+                    border: 1px solid lightgray;
+                    border-radius: 5px;
+            }
+            input{
+                  margin-top: 2px;
+                height: 30px;
+             
+            }
+           
+                .err-msg{
+                    padding: 10px 0px;
+
+                    color: red;
+                }
+
+
+        }
     input{
         padding: 16px;
         height: 40px;

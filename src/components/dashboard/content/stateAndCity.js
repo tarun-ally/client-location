@@ -20,7 +20,6 @@ export default function StateAndCity() {
     const stateLocation=useSelector((state) => state.dataReducer.stateLocation)
     const address=useSelector((state) => state.dataReducer.address)
 
-
     const dispatch=useDispatch()
 
 
